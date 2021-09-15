@@ -1,13 +1,13 @@
 package com.canonal.periodictable
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-
-import androidx.recyclerview.widget.RecyclerView
 import com.canonal.periodictable.adapter.PeriodicTableAdapter
 import com.canonal.periodictable.databinding.ActivityMainBinding
+import com.canonal.periodictable.model.Element
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,12 +15,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val elementList = Data.getDummyData()
-        val periodicTableAdapter = PeriodicTableAdapter(elementList)
+        val periodicTableAdapter = PeriodicTableAdapter(elementList){
+            position -> onItemClicked(
+            elementList,
+            position
+            )
+        }
+        binding.rvPeriodicTable.layoutManager =
+            GridLayoutManager(this, 18)
         binding.rvPeriodicTable.adapter = periodicTableAdapter
-        binding.rvPeriodicTable.layoutManager = GridLayoutManager(this,5,RecyclerView.HORIZONTAL,false)
 
+
+    }
+
+    private fun onItemClicked(elementList: List<Element>, position: Int){
+    Toast.makeText(applicationContext,"Clicked",Toast.LENGTH_SHORT).show()
     }
 }
