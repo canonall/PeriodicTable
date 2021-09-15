@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="elementDetail"
+            type="com.canonal.periodictable.model.Element" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvDetailAtomNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@{Integer.toString(elementDetail.atomNumber)}"
+            android:textColor="@color/dirty_white"
+            android:textSize="18sp"
+            tools:text="12" />
+
+        <TextView
+            android:id="@+id/tvDetailSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetailAtomNumber"
+            android:layout_alignStart="@+id/tvDetailAtomNumber"
+            android:alpha="0.4"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="@{elementDetail.symbol}"
+            android:textColor="@color/dirty_white"
+            android:textSize="45sp"
+            tools:text="Au" />
+
+        <TextView
+            android:id="@+id/tvDetailElementDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetailName"
+            android:layout_alignStart="@+id/tvDetailName"
+            android:layout_marginEnd="8dp"
+            android:alpha="0.4"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@{elementDetail.type.toString()}"
+            android:textColor="@color/dirty_white" />
+
+        <TextView
+            android:id="@+id/tvDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDetailAtomNumber"
+            android:layout_alignTop="@id/tvDetailSymbol"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/tvDetailSymbol"
+            android:alpha="0.4"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@{elementDetail.name}"
+            android:textColor="@color/dirty_white"
+            android:textSize="20sp"
+            tools:text="Gold" />
+
+        <ImageView
+            android:id="@+id/iv_item_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetailSymbol"
+            android:layout_alignStart="@id/tvDetailSymbol"
+            android:layout_alignEnd="@id/tvDetailElementDetail"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/item_image" />
+
+    </RelativeLayout>
+</layout>

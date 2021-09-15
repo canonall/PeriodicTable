@@ -7,18 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dirty_white">#EDE9E8 </color>
 
-    <color name="app_background">#5D5D5D</color>
+    <color name="app_background">#1E2426</color>
 
-    <color name="non_metal">#6B4B74</color>
-    <color name="noble_gas">#874EC6</color>
-    <color name="alkali_metal">#900C3F</color>
-    <color name="alkaline_earth_metal">#745D4B</color>
-    <color name="transition_metal">#50AB47</color>
-    <color name="post_transition_metal">#3F7E39</color>
+    <color name="non_metal">#5758BB</color>
+    <color name="noble_gas">#6F1E51</color>
+    <color name="alkali_metal">#780909</color>
+    <color name="alkaline_earth_metal">#715D1A</color>
+    <color name="transition_metal">#2c2c54</color>
+    <color name="post_transition_metal">#218c74</color>
     <color name="metalloid">#1f3743</color>
-    <color name="halogen">#854697</color>
-    <color name="lanthanide">#6A5C7A</color>
-    <color name="acitinide">#9383A5</color>
+    <color name="halogen">#833471</color>
+    <color name="lanthanide">#1E7EA7</color>
+    <color name="acitinide">#097875</color>
 
 </resources>
