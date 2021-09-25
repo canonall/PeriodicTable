@@ -6,7 +6,7 @@
 
         <variable
             name="elementDetail"
-            type="com.canonal.periodictable.model.Element" />
+            type="com.canonal.periodictable.model.ElementModel" />
     </data>
 
     <RelativeLayout

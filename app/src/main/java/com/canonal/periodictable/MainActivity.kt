@@ -8,10 +8,11 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import com.canonal.periodictable.adapter.PeriodicTableAdapter
+import com.canonal.periodictable.adapter.ElementItemAdapter
 import com.canonal.periodictable.databinding.ActivityMainBinding
 import com.canonal.periodictable.databinding.DialogItemBinding
-import com.canonal.periodictable.model.Element
+import com.canonal.periodictable.model.ElementModel
+import com.canonal.periodictable.model.PeriodicTableModel
 import com.canonal.periodictable.util.DataBindingUtils
 
 class MainActivity : AppCompatActivity() {
@@ -24,25 +25,16 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val elementList = Data.getDummyData()
-        val periodicTableAdapter = PeriodicTableAdapter(elementList) { position ->
-            onItemClicked(
-                elementList,
-                position
-            )
+        val periodicTableAdapter = ElementItemAdapter(elementList) { elementModel ->
+            showDialog(elementModel)
         }
         binding.rvPeriodicTable.layoutManager =
             GridLayoutManager(this, 18)
         binding.rvPeriodicTable.setHasFixedSize(true)
         binding.rvPeriodicTable.adapter = periodicTableAdapter
-
-
     }
 
-    private fun onItemClicked(elementList: List<Element>, position: Int) {
-        showDialog(elementList[position])
-    }
-
-    private fun showDialog(element: Element) {
+    private fun showDialog(periodicTableModel: PeriodicTableModel) {
 
         bindingDialog = DataBindingUtil.inflate(
             LayoutInflater.from(this@MainActivity),
@@ -50,8 +42,8 @@ class MainActivity : AppCompatActivity() {
             null,
             false
         )
-        bindingDialog.elementDetail = element
-        DataBindingUtils.setBackground(bindingDialog.rlDetail, element)
+        bindingDialog.elementDetail = (periodicTableModel as ElementModel)
+        DataBindingUtils.setBackground(bindingDialog.rlDetail, periodicTableModel)
 
         val dialog = Dialog(this@MainActivity, R.style.AppTheme)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

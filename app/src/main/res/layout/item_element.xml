@@ -6,13 +6,14 @@
 
         <variable
             name="periodicTableElement"
-            type="com.canonal.periodictable.model.Element" />
+            type="com.canonal.periodictable.model.ElementModel" />
     </data>
 
     <RelativeLayout
         android:id="@+id/rlItem"
-        android:layout_width="95dp"
-        android:layout_height="90dp">
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        android:layout_margin="2dp">
 
         <TextView
             android:id="@+id/tvElementAtomNumber"
@@ -38,7 +39,7 @@
             android:gravity="center"
             android:text="@{periodicTableElement.symbol}"
             android:textColor="@color/dirty_white"
-            android:textSize="25sp"
+            android:textSize="23sp"
             tools:text="H" />
 
         <TextView
@@ -52,7 +53,7 @@
             android:gravity="center"
             android:text="@{periodicTableElement.name}"
             android:textColor="@color/dirty_white"
-            android:textSize="15sp"
+            android:textSize="14sp"
             tools:text="Hydrogen" />
 
     </RelativeLayout>

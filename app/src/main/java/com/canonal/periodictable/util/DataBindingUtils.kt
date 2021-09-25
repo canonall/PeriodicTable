@@ -4,23 +4,14 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.canonal.periodictable.R
-import com.canonal.periodictable.model.Element
+import com.canonal.periodictable.model.ElementModel
 import com.canonal.periodictable.model.ElementType
 
 object DataBindingUtils {
-    @BindingAdapter("android:visibility")
-    fun setVisibility(view: View, element: Element) {
-        if (element.isVisible.not()) {
-            view.visibility = View.INVISIBLE
-        } else {
-            view.visibility = View.VISIBLE
-        }
-
-    }
 
     @BindingAdapter("android:background")
-    fun setBackground(view: View, element: Element) {
-        when (element.type) {
+    fun setBackground(view: View, elementModel: ElementModel) {
+        when (elementModel.type) {
             ElementType.NONMETAL -> view.setBackgroundColor(
                 ContextCompat.getColor(
                     view.context,
